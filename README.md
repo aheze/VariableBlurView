@@ -6,6 +6,8 @@ Original author: [@jtrivedi](https://github.com/jtrivedi)
 
 Original repository: https://github.com/jtrivedi/VariableBlurView
 
+React Native port: https://github.com/candlefinance/blur-view
+
 https://github.com/aheze/VariableBlurView/assets/49819455/4400f76d-7d85-4e3f-9757-19bc99297524
 
 ### Installation
@@ -20,7 +22,7 @@ https://github.com/aheze/VariableBlurView
 
 Well it still uses the `CAFilter` private API, but I obfuscated it as a base64 string. I've used this method in [Midnight](https://midnight.day) and it worked just fine.
 
-Also, this version gets past App Review — Janum's original version included a objc briding header, which gets auto-rejected. This version uses a bunch of objc selectors instead.
+Also, this version gets past App Review — Janum's original version included a objc briding header, which gets auto-rejected. This version uses a bunch of runtime objc selectors instead.
 
 ### License
 
