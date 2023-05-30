@@ -78,16 +78,18 @@ public class VariableBlurUIView: UIVisualEffectView {
 }
 
 public struct VariableBlurView: UIViewRepresentable {
+    static var defaultGradientMask = UIImage(named: "AlphaGradient", in: Bundle.module, with: nil)!
+    
     public var gradientMask: UIImage
     public var maxBlurRadius: CGFloat
     public var filterType: String
 
     public init(
-        gradientMask: UIImage = UIImage(named: "AlphaGradient")!,
+        gradientMask: UIImage? = nil,
         maxBlurRadius: CGFloat = 20,
         filterType: String = "variableBlur"
     ) {
-        self.gradientMask = gradientMask
+        self.gradientMask = gradientMask ?? VariableBlurView.defaultGradientMask
         self.maxBlurRadius = maxBlurRadius
         self.filterType = filterType
     }
