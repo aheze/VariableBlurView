@@ -5,11 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "VariableBlurView",
+    platforms: [
+        .iOS(.v13), .macOS(.v11)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "VariableBlurView",
-            targets: ["VariableBlurView"]),
+            targets: ["VariableBlurView"]
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,9 +24,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "VariableBlurView",
-            dependencies: []),
-        .testTarget(
-            name: "VariableBlurViewTests",
-            dependencies: ["VariableBlurView"]),
+            dependencies: [],
+            path: "Sources"
+        )
     ]
 )

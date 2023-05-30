@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "alpha-gradient.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
