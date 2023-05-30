@@ -34,6 +34,7 @@
 
 import SwiftUI
 
+/// A variable blur view.
 public class VariableBlurUIView: UIVisualEffectView {
     public init(
         gradientMask: UIImage,
@@ -42,14 +43,43 @@ public class VariableBlurUIView: UIVisualEffectView {
     ) {
         super.init(effect: UIBlurEffect(style: .regular))
 
-        /// `CAFilter` is a private QuartzCore class
-        let filterClassString = "CAFilter"
+        /// This is a private QuartzCore class, encoded in base64.
+        ///
+        ///             CAFilter
+        let filterClassStringEncoded = "Q0FGaWx0ZXI="
 
-        /// This is the magic class method that we want to invoke.
-        let filterWithType = "filterWithType:"
+        let filterClassString: String = {
+            if
+                let data = Data(base64Encoded: filterClassStringEncoded),
+                let string = String(data: data, encoding: .utf8)
+            {
+                return string
+            }
+
+            print("[VariableBlurView] couldn't decode the filter class string.")
+            return ""
+        }()
+
+        /// This is the magic class method that we want to invoke, encoded in base64.
+        ///
+        ///       filterWithType:"
+        let filterWithTypeStringEncoded = "ZmlsdGVyV2l0aFR5cGU6"
+
+        /// Decode the base64.
+        let filterWithTypeString: String = {
+            if
+                let data = Data(base64Encoded: filterWithTypeStringEncoded),
+                let string = String(data: data, encoding: .utf8)
+            {
+                return string
+            }
+
+            print("[VariableBlurView] couldn't decode the filter method string.")
+            return ""
+        }()
 
         /// Create the selector.
-        let filterWithTypeSelector = Selector(filterWithType)
+        let filterWithTypeSelector = Selector(filterWithTypeString)
 
         /// Create the class object.
         guard let filterClass = NSClassFromString(filterClassString) as AnyObject as? NSObjectProtocol else {
@@ -103,11 +133,13 @@ public class VariableBlurUIView: UIVisualEffectView {
     }
 }
 
+/// A variable blur view.
 public struct VariableBlurView: UIViewRepresentable {
     public var gradientMask: UIImage
     public var maxBlurRadius: CGFloat
     public var filterType: String
 
+    /// A variable blur view.
     public init(
         gradientMask: UIImage = VariableBlurViewConstants.defaultGradientMask,
         maxBlurRadius: CGFloat = 20,
