@@ -163,6 +163,8 @@ public struct VariableBlurView: UIViewRepresentable {
 }
 
 public enum VariableBlurViewConstants {
+
+    /// A gradient mask image (top is opaque, bottom is clear). The gradient includes easing.
     public static var defaultGradientMask: UIImage = {
         if
             let data = Data(base64Encoded: defaultMaskImageString, options: .ignoreUnknownCharacters),
@@ -175,6 +177,7 @@ public enum VariableBlurViewConstants {
         }
     }()
 
+    /// The image encoded in base64 (from PNG data).
     public static let defaultMaskImageString = """
     iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAQAAADa613fAAANBGlDQ1BrQ0dDb2xvclNwYWNlR2Vu
     ZXJpY0dyYXlHYW1tYTJfMgAAWIWlVwdck9cWv9/IAJKwp4ywkWVAgQAyIjOA7CG4iEkggRBiBgLi
