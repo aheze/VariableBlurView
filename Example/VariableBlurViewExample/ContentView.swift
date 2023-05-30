@@ -14,7 +14,7 @@ struct ContentView: View {
         ZStack {
             ScrollView(.vertical) {
                 VStack {
-                    Image("Camping")
+                    Image("Sky")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
@@ -22,6 +22,13 @@ struct ContentView: View {
                 }
                 .padding(.top, 50)
             }
+//            .onAppear {
+//                let image = UIImage(named: "Image")
+//                if let data = image?.pngData() {
+//                    let string = data.base64EncodedString(options: .lineLength76Characters)
+//                    print(string)
+//                }
+//            }
 
             VStack {
                 VariableBlurView()
