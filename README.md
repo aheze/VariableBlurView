@@ -1,3 +1,4 @@
 # VariableBlurView
 
-A description of this package.
+Original aurhot: @jtrivedi
+Original repository: https://github.com/jtrivedi/VariableBlurView
