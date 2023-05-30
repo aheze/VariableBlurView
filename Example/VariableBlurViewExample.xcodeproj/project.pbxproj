@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3BADF82A25D8BD00DF4748 /* VariableBlurView in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3BADF72A25D8BD00DF4748 /* VariableBlurView */; };
 		3CC0DE6E2A25D87800FAFF19 /* VariableBlurViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0DE6D2A25D87800FAFF19 /* VariableBlurViewExampleApp.swift */; };
 		3CC0DE702A25D87800FAFF19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC0DE6F2A25D87800FAFF19 /* ContentView.swift */; };
 		3CC0DE722A25D87A00FAFF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC0DE712A25D87A00FAFF19 /* Assets.xcassets */; };
-		3CC0DE752A25D87A00FAFF19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC0DE742A25D87A00FAFF19 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C39B7802A25D8EB0013E6F6 /* VariableBlurView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VariableBlurView; path = ..; sourceTree = "<group>"; };
 		3CC0DE6A2A25D87800FAFF19 /* VariableBlurViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VariableBlurViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC0DE6D2A25D87800FAFF19 /* VariableBlurViewExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableBlurViewExampleApp.swift; sourceTree = "<group>"; };
 		3CC0DE6F2A25D87800FAFF19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3CC0DE712A25D87A00FAFF19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3CC0DE742A25D87A00FAFF19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3BADF82A25D8BD00DF4748 /* VariableBlurView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +36,7 @@
 		3CC0DE612A25D87800FAFF19 = {
 			isa = PBXGroup;
 			children = (
+				3C39B7802A25D8EB0013E6F6 /* VariableBlurView */,
 				3CC0DE6C2A25D87800FAFF19 /* VariableBlurViewExample */,
 				3CC0DE6B2A25D87800FAFF19 /* Products */,
 			);
@@ -54,17 +56,8 @@
 				3CC0DE6D2A25D87800FAFF19 /* VariableBlurViewExampleApp.swift */,
 				3CC0DE6F2A25D87800FAFF19 /* ContentView.swift */,
 				3CC0DE712A25D87A00FAFF19 /* Assets.xcassets */,
-				3CC0DE732A25D87A00FAFF19 /* Preview Content */,
 			);
 			path = VariableBlurViewExample;
-			sourceTree = "<group>";
-		};
-		3CC0DE732A25D87A00FAFF19 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3CC0DE742A25D87A00FAFF19 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +76,9 @@
 			dependencies = (
 			);
 			name = VariableBlurViewExample;
+			packageProductDependencies = (
+				3C3BADF72A25D8BD00DF4748 /* VariableBlurView */,
+			);
 			productName = VariableBlurViewExample;
 			productReference = 3CC0DE6A2A25D87800FAFF19 /* VariableBlurViewExample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +107,9 @@
 				Base,
 			);
 			mainGroup = 3CC0DE612A25D87800FAFF19;
+			packageReferences = (
+				3C3BADF62A25D8BC00DF4748 /* XCRemoteSwiftPackageReference "VariableBlurView" */,
+			);
 			productRefGroup = 3CC0DE6B2A25D87800FAFF19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,7 +124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CC0DE752A25D87A00FAFF19 /* Preview Assets.xcassets in Resources */,
 				3CC0DE722A25D87A00FAFF19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +264,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"VariableBlurViewExample/Preview Content\"";
 				DEVELOPMENT_TEAM = WV6XDLHK3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -295,7 +292,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"VariableBlurViewExample/Preview Content\"";
 				DEVELOPMENT_TEAM = WV6XDLHK3W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -339,6 +335,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C3BADF62A25D8BC00DF4748 /* XCRemoteSwiftPackageReference "VariableBlurView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/VariableBlurView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C3BADF72A25D8BD00DF4748 /* VariableBlurView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C3BADF62A25D8BC00DF4748 /* XCRemoteSwiftPackageReference "VariableBlurView" */;
+			productName = VariableBlurView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3CC0DE622A25D87800FAFF19 /* Project object */;
 }

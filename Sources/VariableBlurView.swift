@@ -8,8 +8,12 @@
 
 import SwiftUI
 
-class VariableBlurUIView: UIVisualEffectView {
-    init(gradientMask: UIImage, maxBlurRadius: CGFloat = 20, filterType: String = "variableBlur") {
+public class VariableBlurUIView: UIVisualEffectView {
+    public init(
+        gradientMask: UIImage,
+        maxBlurRadius: CGFloat = 20,
+        filterType: String = "variableBlur"
+    ) {
         super.init(effect: UIBlurEffect(style: .regular))
 
         /// `CAFilter` is a private QuartzCore class
@@ -73,12 +77,29 @@ class VariableBlurUIView: UIVisualEffectView {
     }
 }
 
-struct VariableBlurView: UIViewRepresentable {
-    func makeUIView(context: Context) -> VariableBlurUIView {
-        let image = UIImage(named: "AlphaGradient") ?? UIImage(systemName: "xmark")!
-        let view = VariableBlurUIView(gradientMask: image)
+public struct VariableBlurView: UIViewRepresentable {
+    public var gradientMask: UIImage
+    public var maxBlurRadius: CGFloat
+    public var filterType: String
+
+    public init(
+        gradientMask: UIImage = UIImage(named: "AlphaGradient")!,
+        maxBlurRadius: CGFloat = 20,
+        filterType: String = "variableBlur"
+    ) {
+        self.gradientMask = gradientMask
+        self.maxBlurRadius = maxBlurRadius
+        self.filterType = filterType
+    }
+
+    public func makeUIView(context: Context) -> VariableBlurUIView {
+        let view = VariableBlurUIView(
+            gradientMask: gradientMask,
+            maxBlurRadius: maxBlurRadius,
+            filterType: filterType
+        )
         return view
     }
 
-    func updateUIView(_ uiView: VariableBlurUIView, context: Context) {}
+    public func updateUIView(_ uiView: VariableBlurUIView, context: Context) {}
 }
