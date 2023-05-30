@@ -22,17 +22,10 @@ struct ContentView: View {
                 }
                 .padding(.top, 50)
             }
-//            .onAppear {
-//                let image = UIImage(named: "Image")
-//                if let data = image?.pngData() {
-//                    let string = data.base64EncodedString(options: .lineLength76Characters)
-//                    print(string)
-//                }
-//            }
 
             VStack {
                 VariableBlurView()
-                    .frame(height: 120)
+                    .frame(height: 200)
                     .allowsHitTesting(false)
 
                 Spacer()
