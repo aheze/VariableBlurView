@@ -1,6 +1,8 @@
 # VariableBlurView
 
-A one-file, App Store-safe version of Janum Trivedi's variable blur effect.
+A one-file, App Store upload-safe version of Janum Trivedi's variable blur effect.
+
+(use at your own risk - Apple can still reject it).
 
 Original author: [@jtrivedi](https://github.com/jtrivedi)
 
@@ -18,11 +20,13 @@ Just drag [`VariableBlurView.swift`](https://github.com/aheze/VariableBlurView/b
 https://github.com/aheze/VariableBlurView
 ```
 
-### How is it App Store-safe?
+### How is it App Store upload-safe?
 
 Well it still uses the `CAFilter` private API, but I obfuscated it as a base64 string. I've used this method in [Midnight](https://midnight.day) and it worked just fine.
 
 Also, this version gets past App Review — Janum's original version included a objc briding header, which gets auto-rejected. This version uses a bunch of runtime objc selectors instead.
+
+However, it's still possible that Apple detects this, so use at your own risk.
 
 ### License
 
