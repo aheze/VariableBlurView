@@ -60,12 +60,35 @@ import SwiftUI
 
 /// A variable blur view.
 public class VariableBlurUIView: UIVisualEffectView {
+    private let gradientMask: UIImage
+    private let maxBlurRadius: CGFloat
+    private let filterType: String
+
     public init(
         gradientMask: UIImage,
         maxBlurRadius: CGFloat = 20,
         filterType: String = "variableBlur"
     ) {
+        self.gradientMask = gradientMask
+        self.maxBlurRadius = maxBlurRadius
+        self.filterType = filterType
+
         super.init(effect: UIBlurEffect(style: .regular))
+
+        applyVariableBlur()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func applyVariableBlur() {
+        /// Get rid of the visual effect view's dimming/tint view, so we don't see a hard line.
+        if subviews.indices.contains(1) {
+            let tintOverlayView = subviews[1]
+            tintOverlayView.alpha = 0
+        }
 
         /// This is a private QuartzCore class, encoded in base64.
         ///
@@ -137,12 +160,6 @@ public class VariableBlurUIView: UIVisualEffectView {
         variableBlur.setValue(gradientImageRef, forKey: "inputMaskImage")
         variableBlur.setValue(true, forKey: "inputNormalizeEdges")
 
-        /// Get rid of the visual effect view's dimming/tint view, so we don't see a hard line.
-        if subviews.indices.contains(1) {
-            let tintOverlayView = subviews[1]
-            tintOverlayView.alpha = 0
-        }
-
         /// We use a `UIVisualEffectView` here purely to get access to its `CABackdropLayer`,
         /// which is able to apply various, real-time CAFilters onto the views underneath.
         let backdropLayer = subviews.first?.layer
@@ -151,9 +168,12 @@ public class VariableBlurUIView: UIVisualEffectView {
         backdropLayer?.filters = [variableBlur]
     }
 
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            /// We have to re-apply when the appearance changes because the view updates its filters.
+            self.applyVariableBlur()
+        }
     }
 }
 
